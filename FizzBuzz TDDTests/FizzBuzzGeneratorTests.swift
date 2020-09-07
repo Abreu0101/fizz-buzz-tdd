@@ -18,7 +18,7 @@ class FizzBuzzGeneratorTests: XCTestCase {
         }
     }
     
-    func test_generateOutput_returnsBuzzOnNumberDivisbleBy5() {
+    func test_generateOutput_returnsBuzzOnNumberDivisibleBy5() {
         let samples = [5, 25, 50]
         samples.forEach { number in
             expect(makeSUT(), for: number, toGenerateOutput: "Buzz")

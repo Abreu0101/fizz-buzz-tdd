@@ -22,19 +22,22 @@ struct FizzBuzzGenerator {
 class FizzBuzzGeneratorTests: XCTestCase {
 
     func test_generateOutput_returnsFizzOnNumberDivisibleBy3() {
-        let sut = FizzBuzzGenerator()
-        
-        let receivedOutput = sut.generateOutput(for: 3)
-        
-        XCTAssertEqual(receivedOutput, "Fizz")
+        expect(makeSUT(), for: 3, toGenerateOutput: "Fizz")
     }
     
     func test_generateOutput_returnsBuzzOnNumberDivisbleBy5() {
-        let sut = FizzBuzzGenerator()
-        
-        let receivedOutput = sut.generateOutput(for: 5)
-        
-        XCTAssertEqual(receivedOutput, "Buzz")
+        expect(makeSUT(), for: 5, toGenerateOutput: "Buzz")
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeSUT() -> FizzBuzzGenerator {
+        return FizzBuzzGenerator()
     }
 
+    private func expect(_ sut: FizzBuzzGenerator, for number: Int, toGenerateOutput expectedOutput: String) {
+        let receivedOutput = sut.generateOutput(for: number)
+        XCTAssertEqual(receivedOutput, expectedOutput)
+    }
+    
 }

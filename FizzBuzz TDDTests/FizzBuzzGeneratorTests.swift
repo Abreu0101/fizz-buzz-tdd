@@ -15,8 +15,10 @@ struct FizzBuzzGenerator {
             return "FizzBuzz"
         } else if number % 3 == 0 {
             return "Fizz"
+        } else if number % 5 == 0 {
+            return "Buzz"
         }
-        return "Buzz"
+        return "\(number)"
     }
     
 }
@@ -33,6 +35,10 @@ class FizzBuzzGeneratorTests: XCTestCase {
     
     func test_generateOutput_returnsFizzBuzzOnNumberDivisibleBy3And5() {
         expect(makeSUT(), for: 15, toGenerateOutput: "FizzBuzz")
+    }
+    
+    func test_generateOutput_returnsNumberWhenNotDivisibleBy3Or5() {
+        expect(makeSUT(), for: 4, toGenerateOutput: "4")
     }
     
     // MARK: - Helpers

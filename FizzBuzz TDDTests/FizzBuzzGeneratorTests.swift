@@ -40,13 +40,13 @@ class FizzBuzzGeneratorTests: XCTestCase {
     }
     
     // MARK: - Helpers
-    
-    private func makeSUT() -> FizzBuzzGenerator {
-        return FizzBuzzGenerator()
+    typealias SUT = (Int) -> String
+    private func makeSUT() -> SUT {
+        return FizzBuzzGenerator.generateOutput
     }
 
-    private func expect(_ sut: FizzBuzzGenerator, for number: Int, toGenerateOutput expectedOutput: String, file: StaticString = #file, line: UInt = #line) {
-        let receivedOutput = sut.generateOutput(for: number)
+    private func expect(_ generator: SUT, for number: Int, toGenerateOutput expectedOutput: String, file: StaticString = #file, line: UInt = #line) {
+        let receivedOutput = generator(number)
         XCTAssertEqual(receivedOutput, expectedOutput, "Expected \(expectedOutput), but got \(receivedOutput) instead", file: file, line: line)
     }
     

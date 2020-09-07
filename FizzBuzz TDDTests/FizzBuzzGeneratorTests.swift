@@ -26,19 +26,31 @@ struct FizzBuzzGenerator {
 class FizzBuzzGeneratorTests: XCTestCase {
 
     func test_generateOutput_returnsFizzOnNumberDivisibleBy3() {
-        expect(makeSUT(), for: 3, toGenerateOutput: "Fizz")
+        let samples = [3, 12, 18]
+        samples.forEach { number in
+            expect(makeSUT(), for: number, toGenerateOutput: "Fizz")
+        }
     }
     
     func test_generateOutput_returnsBuzzOnNumberDivisbleBy5() {
-        expect(makeSUT(), for: 5, toGenerateOutput: "Buzz")
+        let samples = [5, 25, 50]
+        samples.forEach { number in
+            expect(makeSUT(), for: number, toGenerateOutput: "Buzz")
+        }
     }
     
     func test_generateOutput_returnsFizzBuzzOnNumberDivisibleBy3And5() {
-        expect(makeSUT(), for: 15, toGenerateOutput: "FizzBuzz")
+        let samples = [15, 30, 45]
+        samples.forEach { number in
+            expect(makeSUT(), for: number, toGenerateOutput: "FizzBuzz")
+        }
     }
     
     func test_generateOutput_returnsNumberWhenNotDivisibleBy3Or5() {
-        expect(makeSUT(), for: 4, toGenerateOutput: "4")
+        let samples = [4, 7, 16]
+        samples.forEach { number in
+            expect(makeSUT(), for: number, toGenerateOutput: "\(number)")
+        }
     }
     
     // MARK: - Helpers

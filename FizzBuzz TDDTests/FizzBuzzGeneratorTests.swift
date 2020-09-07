@@ -61,7 +61,7 @@ class FizzBuzzGeneratorTests: XCTestCase {
 
     private func expect(_ sut: FizzBuzzGenerator, for number: Int, toGenerateOutput expectedOutput: String, file: StaticString = #file, line: UInt = #line) {
         let receivedOutput = sut.generateOutput(for: number)
-        XCTAssertEqual(receivedOutput, expectedOutput, file: file, line: line)
+        XCTAssertEqual(receivedOutput, expectedOutput, "Expected \(expectedOutput), but got \(receivedOutput) instead", file: file, line: line)
     }
     
 }

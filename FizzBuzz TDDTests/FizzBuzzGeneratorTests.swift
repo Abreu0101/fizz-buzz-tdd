@@ -11,7 +11,10 @@ import XCTest
 struct FizzBuzzGenerator {
     
     func generateOutput(for number: Int) -> String {
-        return "Fizz"
+        if number % 3 == 0 {
+            return "Fizz"
+        }
+        return "Buzz"
     }
     
 }
@@ -24,6 +27,14 @@ class FizzBuzzGeneratorTests: XCTestCase {
         let receivedOutput = sut.generateOutput(for: 3)
         
         XCTAssertEqual(receivedOutput, "Fizz")
+    }
+    
+    func test_generateOutput_returnsBuzzOnNumberDivisbleBy5() {
+        let sut = FizzBuzzGenerator()
+        
+        let receivedOutput = sut.generateOutput(for: 5)
+        
+        XCTAssertEqual(receivedOutput, "Buzz")
     }
 
 }

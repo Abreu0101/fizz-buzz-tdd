@@ -7,21 +7,7 @@
 //
 
 import XCTest
-
-struct FizzBuzzGenerator {
-    
-    func generateOutput(for number: Int) -> String {
-        if number % 3 == 0 && number % 5 == 0 {
-            return "FizzBuzz"
-        } else if number % 3 == 0 {
-            return "Fizz"
-        } else if number % 5 == 0 {
-            return "Buzz"
-        }
-        return "\(number)"
-    }
-    
-}
+import FizzBuzz_TDD
 
 class FizzBuzzGeneratorTests: XCTestCase {
 
